@@ -1,0 +1,24 @@
+<div class="container">
+  <h2>ELIXIR FOODS</h2>
+
+  <div class="input-section">
+    <input [(ngModel)]="newItem.name" placeholder="Item Name" />
+    <input [(ngModel)]="newItem.price" type="number" placeholder="Price" />
+    <input [(ngModel)]="newItem.category" placeholder="Category" />
+    <button (click)="addItem()">Add Item</button>
+  </div>
+
+  <hr />
+
+  <div class="item-list">
+    <div *ngFor="let item of items" class="item-card">
+      <div class="item-info">
+        <span><b>{{ item.name }}</b> ({{ item.category }})</span>
+      </div>
+      <div class="item-actions">
+        <span class="item-price">₹{{ item.price }}</span>
+        <button class="delete-btn" (click)="deleteItem(item._id)">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
